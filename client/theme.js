@@ -61,5 +61,11 @@ export const S = {
   textarea: { flex: 1, background: C.panel, border: `1px solid ${C.lineWarm}`, borderRadius: 4, color: C.ivory, padding: "12px 14px", fontSize: 14, resize: "none", fontFamily: sans, lineHeight: 1.5, maxHeight: 160, overflowY: "auto" },
   plaque: { fontFamily: serif, fontSize: 12, letterSpacing: "0.1em", lineHeight: 1.35, color: "#241a08", background: `linear-gradient(180deg,${C.brassLight} 0%,${C.brass} 45%,${C.brassDark} 100%)`, border: "1px solid #71581f", borderRadius: 4, padding: "8px 16px", cursor: "pointer", boxShadow: "0 3px 0 #4a3a15, 0 5px 12px rgba(0,0,0,.55)", whiteSpace: "nowrap" },
 
+  voiceRow: { display: "flex", justifyContent: "center", gap: 8, marginBottom: 4, padding: "0 16px" },
+  voiceBtn: { display: "inline-flex", alignItems: "center", gap: 7, background: "none", border: `1px solid ${C.lineMuted}`, color: C.faint, fontSize: 10, letterSpacing: "0.18em", cursor: "pointer", padding: "6px 12px", borderRadius: 3, fontFamily: sans },
+  voiceBtnOn: { border: `1px solid ${C.brass}`, color: C.ivory, background: C.panelRaised },
+  voiceBtnOff: { opacity: 0.45, cursor: "not-allowed" },
+  msgSpeak: { background: "none", border: "none", color: C.brass, cursor: "pointer", padding: "2px 4px", marginLeft: 6, fontSize: 11, lineHeight: 1, opacity: 0.65, fontFamily: sans },
+
   footer: { textAlign: "center", fontSize: 10, color: C.fainter, marginTop: 12, letterSpacing: "0.06em", lineHeight: 1.6 },
 };

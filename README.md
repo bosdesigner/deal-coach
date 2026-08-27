@@ -32,6 +32,7 @@ see **[docs/replit-setup.md](docs/replit-setup.md)**.
 | `npm run build` | Compiles the client to `dist/` |
 | `npm start` | Production: Express serves `dist/` **and** `/api` on `PORT` |
 | `npm run preview` | `build` then `start` — check the real production path |
+| `npm run voices` | Lists the ElevenLabs voice ids on your account |
 
 ## How it works
 
@@ -68,6 +69,17 @@ before running more than one instance). Requests are capped at 4,000 characters
 per message and 24 messages of history. The advisor's hard limits live in
 `server/prompt.js`; the table in `docs/rights-and-guardrails.md` explains why
 each one is there.
+
+## Voice (optional)
+
+The advisor can speak its replies through ElevenLabs. Set `ELEVENLABS_API_KEY`
+and `ELEVENLABS_VOICE_ID` (use `npm run voices` to list ids) and a toggle
+appears; without them the app runs normally and the toggle reads unavailable.
+
+**The voice must not clone or imitate Trump** — ElevenLabs blocks political
+figures regardless of consent, voice is separately protected by law, and the
+licence doesn't cover it. Cast for energy, not impression.
+**[docs/voice-setup.md](docs/voice-setup.md)** has the full reasoning and setup.
 
 ## Layout
 

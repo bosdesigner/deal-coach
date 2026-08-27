@@ -34,6 +34,16 @@ edit that file, keep every one of them:
 | No coaching toward deception, fraud, threats, or harassment | "Fight Back" means answering unfairly on the record — not retaliating illegitimately. |
 | Declines political questions and commentary on real people | Keeps a coaching product out of politics. |
 
+## Voice
+
+The advisor can speak (see `docs/voice-setup.md`). The voice must be an
+original or licensed stock voice — **never** a clone or imitation of Trump or
+any real public figure. ElevenLabs blocks political figures regardless of
+consent, voice is separately protected under the ELVIS Act and the soundalike
+line of cases, and the licence in the one-pager does not grant voice rights.
+Casting a human actor to do an impression is the same violation with an extra
+step. Cast for energy, not resemblance.
+
 ## UI disclosures
 
 Three are present and should stay:

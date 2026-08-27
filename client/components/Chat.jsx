@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { S } from "../theme.js";
 import { STARTERS } from "../../shared/corpus.js";
+import { SpeakerIcon } from "./VoiceToggle.jsx";
 
 function EmptyState({ onPick, disabled }) {
   return (
@@ -28,7 +29,7 @@ function EmptyState({ onPick, disabled }) {
   );
 }
 
-export function Chat({ messages, streaming, error, onPick }) {
+export function Chat({ messages, streaming, error, onPick, onReplay, canSpeak }) {
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -58,7 +59,19 @@ export function Chat({ messages, streaming, error, onPick }) {
           <div key={i} style={S.userMsg}>{m.content}</div>
         ) : (
           <div key={i} style={S.aiMsg}>
-            <div style={S.aiLabel}>WWTD ADVISOR — DEMO OUTPUT</div>
+            <div style={S.aiLabel}>
+              WWTD ADVISOR — DEMO OUTPUT
+              {canSpeak && !(streaming && i === messages.length - 1) && (
+                <button
+                  style={S.msgSpeak}
+                  title="Play this reply"
+                  aria-label="Play this reply"
+                  onClick={() => onReplay(m.content)}
+                >
+                  <SpeakerIcon size={11} />
+                </button>
+              )}
+            </div>
             {m.content}
             {streaming && i === messages.length - 1 && <span className="caret" />}
           </div>

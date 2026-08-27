@@ -7,6 +7,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { rateLimit } from "./rateLimit.js";
 import { hasCredentials, streamAdvisorReply, MODEL } from "./anthropic.js";
 import { MAX_CHARS_PER_MESSAGE, MAX_HISTORY_MESSAGES } from "./prompt.js";
+import { speak, voiceStatus, MAX_SPEAK_CHARS } from "./voice.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -19,7 +20,12 @@ app.set("trust proxy", 1);
 app.use(express.json({ limit: "64kb" }));
 
 app.get("/api/health", (_req, res) => {
-  res.json({ ok: true, model: MODEL, credentials: hasCredentials() });
+  res.json({
+    ok: true,
+    model: MODEL,
+    credentials: hasCredentials(),
+    voice: voiceStatus(),
+  });
 });
 
 /** Reject anything that isn't a well-formed alternating chat history. */
@@ -115,6 +121,41 @@ app.post("/api/chat", rateLimit({ windowMs: 60_000, max: 12 }), async (req, res)
     send({ type: "error", error: message });
   } finally {
     if (!res.writableEnded) res.end();
+  }
+});
+
+app.post("/api/speak", rateLimit({ windowMs: 60_000, max: 20 }), async (req, res) => {
+  const text = typeof req.body?.text === "string" ? req.body.text.trim() : "";
+  if (!text) return res.status(400).json({ error: "Nothing to say." });
+
+  const status = voiceStatus();
+  if (!status.configured) {
+    const missing = !status.hasKey ? "ELEVENLABS_API_KEY" : "ELEVENLABS_VOICE_ID";
+    return res
+      .status(503)
+      .json({ error: `Voice isn't configured. Set ${missing} (see docs/voice-setup.md).` });
+  }
+
+  const controller = new AbortController();
+  res.on("close", () => controller.abort());
+
+  try {
+    const audio = await speak(text.slice(0, MAX_SPEAK_CHARS), { signal: controller.signal });
+    res.set({ "Content-Type": "audio/mpeg", "Cache-Control": "no-store" });
+    audio.on("error", () => res.destroy());
+    audio.pipe(res);
+  } catch (err) {
+    if (controller.signal.aborted) return;
+    console.error("[/api/speak]", err.message);
+    if (res.headersSent) return res.destroy();
+
+    const message =
+      err.status === 401
+        ? "The voice service rejected the API key."
+        : err.status === 429
+          ? "The voice service is rate-limiting. Try again shortly."
+          : "The advisor couldn't speak that. The text is still above.";
+    res.status(502).json({ error: message });
   }
 });
 

@@ -3,15 +3,18 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "AI executive coaching prototype — two-track (deal tactics + mindset) advisor.",
-  "engines": { "node": ">=20" },
+  "description": "AI executive coaching prototype \u2014 two-track (deal tactics + mindset) advisor.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "concurrently -n api,web -c yellow,cyan \"npm:dev:api\" \"npm:dev:web\"",
     "dev:api": "cross-env API_PORT=3001 node --watch server/index.js",
     "dev:web": "cross-env API_PORT=3001 vite",
     "build": "vite build",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "preview": "npm run build && npm start"
+    "preview": "npm run build && npm start",
+    "voices": "node scripts/list-voices.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
