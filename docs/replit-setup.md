@@ -58,4 +58,5 @@ Keep the deployment private while the licence is unsigned. See
 | Replies arrive all at once instead of streaming | Something is buffering the SSE response. Check that nothing was added in front of Express. |
 | `npm install` fails on a package URL | This repo's lockfile uses the public npm registry. If Replit's package firewall rewrote it, delete `package-lock.json` and reinstall. |
 | Port already in use on Run | A previous process survived. Stop the Repl and start it again. |
+| Vite errors on boot, or the UI never comes up | Node too old. Vite 7 needs `^20.19.0 \|\| >=22.12.0`. The `.replit` module is `nodejs-20`, which is fine **only** at 20.19+. Check with `node -v`; bump the module to `nodejs-22` if it's older. |
 | Publish fails: "built successfully but failed to start" | The app bound a port Replit wasn't health-checking. In production `PORT` is assigned by Replit and must win — do not add an `API_PORT` to `.replit`'s `[env]` or to deployment secrets. The boot log names the port it chose. |
