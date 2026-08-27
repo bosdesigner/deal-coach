@@ -128,7 +128,19 @@ if (fs.existsSync(dist)) {
   });
 }
 
-const port = Number(process.env.API_PORT || process.env.PORT || 3001);
+// In production the host assigns PORT and health-checks exactly that port, so
+// it wins outright — a stray API_PORT in the environment must not override it
+// (that failure looks like "built successfully but failed to start").
+// API_PORT is a dev-only escape hatch so Express and Vite can share a machine.
+const isProd = process.env.NODE_ENV === "production";
+const chosen = isProd
+  ? process.env.PORT
+  : process.env.API_PORT || process.env.PORT;
+const port = Number(chosen || 3001);
+
 app.listen(port, "0.0.0.0", () => {
-  console.log(`[deal-coach] api on :${port} · model ${MODEL} · key ${hasCredentials() ? "set" : "MISSING"}`);
+  const mode = isProd ? "production" : "development";
+  console.log(
+    `[deal-coach] ${mode} · listening on :${port} · model ${MODEL} · key ${hasCredentials() ? "set" : "MISSING"}`,
+  );
 });

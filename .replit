@@ -14,15 +14,17 @@ channel = "stable-24_11"
 localPort = 5173
 externalPort = 80
 
-[env]
-API_PORT = "3001"
-
 [deployment]
 # Production: one process. Express serves the built client AND /api,
 # on whatever PORT Replit assigns.
 deploymentTarget = "autoscale"
 build = ["npm", "run", "build"]
 run = ["npm", "start"]
+
+# NOTE: deliberately no [env] block. Anything set there also applies to the
+# deployment, and an API_PORT there would override the PORT that Replit
+# assigns in production — the app would bind the wrong port and fail to start.
+# API_PORT is dev-only and set by the npm scripts.
 
 [[hints]]
 regex = "ANTHROPIC_API_KEY"
