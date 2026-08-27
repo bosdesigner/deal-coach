@@ -1,12 +1,11 @@
-# Replit workspace config. See docs/replit-setup.md.
-modules = ["nodejs-22"]
+modules = ["nodejs-20"]
 run = "npm run dev"
 entrypoint = "client/App.jsx"
 
 hidden = [".config", "dist", "node_modules"]
 
 [nix]
-channel = "stable-24_11"
+channel = "stable-25_05"
 
 # Dev: Vite serves the UI on 5173 and proxies /api to Express on 3001.
 # Only 5173 is exposed — 3001 stays internal.
