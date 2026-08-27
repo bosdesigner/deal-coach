@@ -1,0 +1,29 @@
+# Replit workspace config. See docs/replit-setup.md.
+modules = ["nodejs-22"]
+run = "npm run dev"
+entrypoint = "client/App.jsx"
+
+hidden = [".config", "dist", "node_modules"]
+
+[nix]
+channel = "stable-24_11"
+
+# Dev: Vite serves the UI on 5173 and proxies /api to Express on 3001.
+# Only 5173 is exposed — 3001 stays internal.
+[[ports]]
+localPort = 5173
+externalPort = 80
+
+[env]
+API_PORT = "3001"
+
+[deployment]
+# Production: one process. Express serves the built client AND /api,
+# on whatever PORT Replit assigns.
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "start"]
+
+[[hints]]
+regex = "ANTHROPIC_API_KEY"
+message = "Set ANTHROPIC_API_KEY in the Secrets pane (lock icon), not in a file."

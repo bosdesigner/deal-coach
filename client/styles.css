@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Archivo:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0d0a07;
+}
+
+.plaque { transition: transform .08s ease, box-shadow .08s ease; }
+.plaque:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #4a3a15, 0 2px 6px rgba(0, 0, 0, .6) !important;
+}
+.plaque:disabled { opacity: .5; cursor: not-allowed; }
+
+.starter:hover { border-color: #c9a44c !important; color: #efe6d2 !important; }
+.rail-toggle:hover { color: #efe6d2; }
+
+.pulse { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: .4 } 50% { opacity: 1 } }
+
+/* The blinking cursor that trails streaming text. */
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #c9a44c;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse, .caret { animation: none }
+  .plaque { transition: none }
+  .chat { scroll-behavior: auto }
+}
+
+textarea:focus, button:focus-visible { outline: 2px solid #c9a44c; outline-offset: 2px; }

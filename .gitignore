@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+
+# Replit workspace state — machine-specific, never committed.
+.replit.local
+.config/
+.upm/
+.breakpoints
+replit.nix.lock
+
+.DS_Store
+.vscode/
+.idea/
