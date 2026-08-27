@@ -33,7 +33,9 @@ export const S = {
 
   tabRow: { display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", justifyContent: "center", padding: "0 16px" },
   tab: { background: "none", border: `1px solid ${C.lineMuted}`, color: C.faint, fontSize: 11, letterSpacing: "0.12em", cursor: "pointer", padding: "8px 14px", borderRadius: 3, fontFamily: sans },
-  tabActive: { borderColor: C.brass, color: C.ivory, background: C.panelRaised },
+  // Full `border` shorthand, not borderColor: React warns when a shorthand and
+  // its longhand are swapped across rerenders, and it can genuinely mis-paint.
+  tabActive: { border: `1px solid ${C.brass}`, color: C.ivory, background: C.panelRaised },
 
   rail: { width: "100%", maxWidth: 720, padding: "0 16px 12px", display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 8 },
   card: { display: "flex", gap: 12, background: C.panel, border: `1px solid ${C.line}`, borderRadius: 4, padding: "10px 12px" },

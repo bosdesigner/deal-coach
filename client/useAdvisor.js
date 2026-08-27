@@ -45,6 +45,16 @@ export function useAdvisor() {
   const [error, setError] = useState(null);
   const abortRef = useRef(null);
 
+  // The ref is the source of truth for building requests. Reading `messages`
+  // straight out of a setState updater looks equivalent but isn't: React runs
+  // updaters at render, not at call time, so the value wouldn't exist yet —
+  // and StrictMode invokes them twice, which would double-append the turn.
+  const messagesRef = useRef(messages);
+  const commit = useCallback((next) => {
+    messagesRef.current = next;
+    setMessages(next);
+  }, []);
+
   const send = useCallback(
     async (text) => {
       const content = text.trim();
@@ -53,13 +63,8 @@ export function useAdvisor() {
       setError(null);
       setStreaming(true);
 
-      // Snapshot the history we're actually sending, so the request doesn't
-      // depend on a state update having flushed first.
-      let history;
-      setMessages((prev) => {
-        history = [...prev, { role: "user", content }];
-        return history;
-      });
+      const history = [...messagesRef.current, { role: "user", content }];
+      commit(history);
 
       const controller = new AbortController();
       abortRef.current = controller;
@@ -86,14 +91,14 @@ export function useAdvisor() {
           if (event.type === "delta") {
             if (!opened) {
               opened = true;
-              setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+              commit([...messagesRef.current, { role: "assistant", content: "" }]);
             }
-            setMessages((prev) => {
-              const next = [...prev];
-              const last = next[next.length - 1];
-              next[next.length - 1] = { ...last, content: last.content + event.text };
-              return next;
-            });
+            const current = messagesRef.current;
+            const last = current[current.length - 1];
+            commit([
+              ...current.slice(0, -1),
+              { ...last, content: last.content + event.text },
+            ]);
           } else if (event.type === "error") {
             setError(event.error || GENERIC_ERROR);
           }
@@ -105,14 +110,14 @@ export function useAdvisor() {
         setStreaming(false);
       }
     },
-    [streaming],
+    [streaming, commit],
   );
 
   const reset = useCallback(() => {
     abortRef.current?.abort();
-    setMessages([]);
+    commit([]);
     setError(null);
-  }, []);
+  }, [commit]);
 
   return { messages, streaming, error, send, reset };
 }
