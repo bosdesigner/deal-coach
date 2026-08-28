@@ -17,7 +17,7 @@ export function IntentBoard() {
       <div style={S.sectionLabel}>THE INTENT BOARD · DOUBLE-BLIND</div>
       <div style={S.intentGrid}>
         {INTENT_LISTINGS.map((l) => (
-          <div key={l.id} style={S.intentCard}>
+          <div key={l.id} className="engraved lift" style={S.intentCard}>
             <div style={S.intentKind}>{l.kind}</div>
             <div style={S.intentBody}>{l.body}</div>
             <button style={S.intentBtn} disabled title={UNLOCK_NOTE}>

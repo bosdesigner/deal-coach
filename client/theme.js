@@ -24,11 +24,11 @@ const sans = "'Archivo',system-ui,-apple-system,sans-serif";
 export const S = {
   page: { minHeight: "100vh", background: `linear-gradient(180deg,${C.inkTop} 0%,${C.ink} 100%)`, color: C.ivory, fontFamily: sans, display: "flex", flexDirection: "column", alignItems: "center", padding: "0 0 24px" },
 
-  masthead: { textAlign: "center", padding: "28px 16px 18px", width: "100%", maxWidth: 720 },
+  masthead: { textAlign: "center", padding: "38px 16px 20px", width: "100%", maxWidth: 720 },
   demoBadge: { display: "inline-block", fontSize: 10, letterSpacing: "0.25em", color: C.faint, border: `1px solid ${C.lineMuted}`, padding: "4px 10px", borderRadius: 2, marginBottom: 14 },
   mastheadRule: { height: 1, background: `linear-gradient(90deg,transparent,${C.brass},transparent)`, margin: "10px auto", maxWidth: 420 },
-  brand: { fontFamily: serif, fontSize: "clamp(26px,6vw,40px)", letterSpacing: "0.12em", margin: 0, color: C.ivory, fontWeight: 400 },
-  tagline: { fontSize: 11, letterSpacing: "0.45em", color: C.brass, marginTop: 6 },
+  brand: { fontFamily: serif, fontSize: "clamp(29px,7.2vw,50px)", letterSpacing: "0.15em", margin: 0, color: C.ivory, fontWeight: 400 },
+  tagline: { fontSize: 10.5, letterSpacing: "0.5em", color: C.brass, marginTop: 9, paddingLeft: "0.5em" },
   byline: { fontSize: 11, color: C.faint, marginTop: 8, letterSpacing: "0.04em" },
 
   tabRow: { display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", justifyContent: "center", padding: "0 16px" },
@@ -124,6 +124,30 @@ export const S = {
   receiptWrap: { textAlign: "center", padding: "34px 12px" },
   receiptHead: { fontFamily: serif, fontSize: "clamp(20px,3.6vw,26px)", letterSpacing: "0.06em", color: C.ivory },
   receiptBody: { fontSize: 13, color: C.muted, lineHeight: 1.7, maxWidth: 400, margin: "14px auto 0" },
+
+  // ---- The Pledge --------------------------------------------------------
+  pledgeWrap: { width: "100%", maxWidth: 720, padding: "0 16px", display: "flex", flexDirection: "column", gap: 26 },
+  pledgeHead: { textAlign: "center", padding: "6px 0 2px" },
+  pledgeTitle: { fontFamily: serif, fontSize: "clamp(22px,4.6vw,32px)", letterSpacing: "0.14em", color: C.ivory, margin: 0 },
+  pledgeIntro: { fontSize: 12, color: C.faint, lineHeight: 1.7, maxWidth: 430, margin: "12px auto 0" },
+
+  article: { display: "grid", gridTemplateColumns: "34px 1fr", gap: "0 14px", padding: "16px 0", borderTop: `1px solid ${C.line}` },
+  articleNum: { fontFamily: serif, fontSize: 15, color: C.brass, letterSpacing: "0.06em", paddingTop: 1 },
+  articleHeading: { fontFamily: serif, fontSize: 14.5, color: C.ivory, letterSpacing: "0.04em", marginBottom: 6 },
+  articleBody: { fontSize: 13, color: C.muted, lineHeight: 1.72 },
+
+  assentBox: { display: "flex", alignItems: "flex-start", gap: 11, padding: "16px 0 4px", fontSize: 12.5, color: C.ivory, cursor: "pointer", lineHeight: 1.55 },
+  signRow: { display: "flex", gap: 10, alignItems: "stretch", marginTop: 12, flexWrap: "wrap" },
+  signInput: { flex: "1 1 220px", background: C.ink, border: `1px solid ${C.lineWarm}`, borderRadius: 3, color: C.ivory, padding: "11px 13px", fontSize: 15, fontFamily: serif, letterSpacing: "0.05em" },
+
+  sealWrap: { textAlign: "center", padding: "26px 12px 8px" },
+  sealName: { fontFamily: serif, fontSize: "clamp(20px,4vw,28px)", color: C.ivory, letterSpacing: "0.06em", borderBottom: `1px solid ${C.lineWarm}`, paddingBottom: 12, display: "inline-block", minWidth: 220 },
+  sealMeta: { fontSize: 9.5, letterSpacing: "0.22em", color: C.brass, marginTop: 14 },
+
+  cohortBand: { background: "linear-gradient(180deg,#1a140e 0%,#100c08 100%)", border: `1px solid ${C.lineWarm}`, borderRadius: 4, padding: "22px 20px" },
+  cohortTitle: { fontFamily: serif, fontSize: 15, letterSpacing: "0.2em", color: C.ivory },
+  cohortYear: { fontFamily: serif, fontSize: 15, color: C.brass, letterSpacing: "0.2em" },
+  cohortBody: { fontSize: 12.5, color: C.muted, lineHeight: 1.7, marginTop: 12, maxWidth: 470 },
 
   voiceRow: { display: "flex", justifyContent: "center", gap: 8, marginBottom: 4, padding: "0 16px" },
   voiceBtn: { display: "inline-flex", alignItems: "center", gap: 7, background: "none", border: `1px solid ${C.lineMuted}`, color: C.faint, fontSize: 10, letterSpacing: "0.18em", cursor: "pointer", padding: "6px 12px", borderRadius: 3, fontFamily: sans },

@@ -9,6 +9,7 @@ import { Composer } from "./components/Composer.jsx";
 import { VoiceToggle } from "./components/VoiceToggle.jsx";
 import { RoomBanner } from "./components/dealroom/RoomBanner.jsx";
 import { DealRoom } from "./components/dealroom/DealRoom.jsx";
+import { Pledge } from "./components/dealroom/Pledge.jsx";
 
 export default function App() {
   const [track, setTrack] = useState(null);
@@ -35,7 +36,12 @@ export default function App() {
       <RoomBanner onOpen={() => setView("room")} />
 
       {view === "room" ? (
-        <DealRoom onBack={() => setView("advisor")} />
+        <DealRoom
+          onBack={() => setView("advisor")}
+          onPledge={() => setView("pledge")}
+        />
+      ) : view === "pledge" ? (
+        <Pledge onBack={() => setView("room")} />
       ) : (
       <main style={S.chatWrap}>
         <Chat

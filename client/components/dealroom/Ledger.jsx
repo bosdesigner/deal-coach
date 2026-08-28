@@ -16,7 +16,7 @@ export function Ledger() {
       <div style={S.sectionLabel}>
         THE LEDGER{l.demoFigure && " · DEMO STANDING"}
       </div>
-      <div style={S.panel}>
+      <div className="engraved" style={S.panel}>
         <div style={S.ledgerGrid}>
           {cells.map((c) => (
             <div key={c.k} style={S.ledgerCell}>

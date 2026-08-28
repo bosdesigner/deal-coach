@@ -6,7 +6,7 @@ export function Precedence() {
   return (
     <section>
       <div style={S.sectionLabel}>THE ORDER OF PRECEDENCE</div>
-      <div style={S.panel}>
+      <div className="engraved" style={S.panel}>
         {PRECEDENCE.map((r, i) => (
           <div
             key={r.rank}

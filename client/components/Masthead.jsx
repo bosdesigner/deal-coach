@@ -1,16 +1,19 @@
 import { S } from "../theme.js";
+import { Reveal } from "./Reveal.jsx";
 
 export function Masthead() {
   return (
     <header style={S.masthead}>
-      <div style={S.demoBadge}>PRODUCT DEMO</div>
-      <div style={S.mastheadRule} />
-      <h1 style={S.brand}>THE ART OF THE DEAL</h1>
-      <div style={S.tagline}>AI EXECUTIVE COACHING</div>
-      <div style={S.byline}>
+      <Reveal i={0} style={S.demoBadge} as="div">PRODUCT DEMO</Reveal>
+      <Reveal i={1} style={S.mastheadRule} />
+      <Reveal i={2} as="h1" style={S.brand}>
+        <span className="wordmark">THE ART OF THE DEAL</span>
+      </Reveal>
+      <Reveal i={3} style={S.tagline}>AI EXECUTIVE COACHING</Reveal>
+      <Reveal i={4} style={S.byline}>
         The Deal · The Mindset — with Keith Ablow, author of <em>Trump Your Life</em>
-      </div>
-      <div style={S.mastheadRule} />
+      </Reveal>
+      <Reveal i={5} style={S.mastheadRule} />
     </header>
   );
 }

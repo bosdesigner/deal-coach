@@ -52,7 +52,7 @@ function SeatingMotif() {
 export function SummitStrip() {
   return (
     <section>
-      <div style={S.summitStrip}>
+      <div className="engraved" style={S.summitStrip}>
         <SeatingMotif />
         <div>
           <div style={S.summitName}>{SUMMIT.name}</div>

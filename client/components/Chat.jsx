@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { S } from "../theme.js";
 import { STARTERS } from "../../shared/corpus.js";
+import { Reveal } from "./Reveal.jsx";
 import { SpeakerIcon } from "./VoiceToggle.jsx";
 
 function EmptyState({ onPick, disabled }) {
@@ -13,16 +14,18 @@ function EmptyState({ onPick, disabled }) {
         Trump Your Life.
       </div>
       <div style={S.starterWrap}>
-        {STARTERS.map((s) => (
-          <button
+        {STARTERS.map((s, i) => (
+          <Reveal
+            as="button"
             key={s}
+            i={i}
             className="starter"
             style={S.starter}
             disabled={disabled}
             onClick={() => onPick(s)}
           >
             {s}
-          </button>
+          </Reveal>
         ))}
       </div>
     </div>
@@ -45,7 +48,13 @@ export function Chat({ messages, streaming, error, onPick, onReplay, canSpeak })
     <div
       className="chat"
       ref={scrollRef}
-      style={S.chat}
+      // With no conversation yet the column still claims its full height, which
+      // stranded the opener at the top and left a dead well above the composer.
+      // Centring turns that empty space into composition.
+      style={{
+        ...S.chat,
+        ...(messages.length === 0 && !error ? { justifyContent: "center" } : {}),
+      }}
       role="log"
       aria-live="polite"
       aria-busy={streaming}

@@ -54,6 +54,38 @@ scandal. First year provisional for everyone, no exceptions.
 
 ---
 
+## The Pledge
+
+The ritual of conferral, reached from the Room. Two halves, deliberately.
+
+**The Member's Oath** — seven articles, sworn in the first person: dealing
+straight, confidentiality, reciprocity, holding rank at the Room's pleasure,
+not spending the Room's name outside it, staking precedence when sponsoring,
+and accepting the Committee's authority in advance.
+
+**The Room's Covenant** — six articles given back, in the institutional voice:
+fees honored, member property untouched, enforcement certain and never
+retroactive, no percentage of any transaction, scarcity real, no access sold.
+
+The second half is not decoration. Principle 2 — feared, never hated — is only
+coherent if the institution is bound as well as the member. A court that
+extracts obligations and gives none back is a racket, and the members it
+attracts will behave accordingly. The Covenant is also where the three hard
+constraints in this document become promises a member can hold the Room to,
+rather than internal notes: Covenant IV (no percentage), V (scarcity is real),
+and VI (no access is sold) are the same three lines as the sections below.
+
+The founding-cohort declaration sits **below a hard rule**, after both
+documents. The oath is a thing you read and assent to; the declaration is a
+quiet act at the foot of it. Keeping them visually separate is what stops a
+solemn document from reading as a signup form.
+
+The demo signs nothing: name and assent live in component state, no request,
+no storage, cleared on exit. In production an oath is executed against a
+verified identity and countersigned by the Committee.
+
+---
+
 ## Where this goes wrong, and the line
 
 Court mechanics are a legitimate way to run a members' club — Tiger 21, YPO and

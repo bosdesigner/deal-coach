@@ -15,7 +15,7 @@ export function TheBar() {
   return (
     <section>
       <div style={S.sectionLabel}>{BAR.title}</div>
-      <div style={S.panelBrass}>
+      <div className="engraved" style={S.panelBrass}>
         <div style={S.barGroupLabel}>{BAR.financial.label}</div>
         {BAR.financial.options.map((o) => (
           <Item key={o}>{o}</Item>

@@ -59,7 +59,7 @@ export function Application() {
     return (
       <section>
         <div style={S.sectionLabel}>APPLICATION</div>
-        <div style={S.panel}>
+        <div className="engraved" style={S.panel}>
           <div style={S.receiptWrap}>
             <div style={S.receiptHead}>Application received.</div>
             {/* Enforcement voice: procedural, passive, attributed to the
@@ -87,7 +87,7 @@ export function Application() {
   return (
     <section>
       <div style={S.sectionLabel}>APPLICATION</div>
-      <div style={S.panel}>
+      <div className="engraved" style={S.panel}>
         <div style={S.stepRow}>
           {STEPS.map((label, i) => (
             <div

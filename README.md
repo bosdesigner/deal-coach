@@ -85,8 +85,12 @@ Three things there are not style notes: displayed scarcity must be real
 exist before it rejects anyone, and nothing in the product may imply access to
 government.
 
-The demo stores nothing — the application flow makes no network request and
-writes no storage.
+From the Room, **The Pledge**: the Member's Oath (seven articles, sworn) and
+the Room's Covenant given back (six, binding on the institution), with the
+founding-cohort declaration below a hard rule so the document stays a document.
+
+The demo stores nothing — the application and pledge flows make no network
+request and write no storage.
 
 ## Voice (optional)
 

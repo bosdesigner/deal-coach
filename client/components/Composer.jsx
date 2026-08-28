@@ -38,7 +38,7 @@ export function Composer({ onSend, disabled }) {
         }}
       />
       <button
-        className="plaque"
+        className="plaque sheen"
         style={S.plaque}
         onClick={submit}
         disabled={disabled || value.trim().length === 0}

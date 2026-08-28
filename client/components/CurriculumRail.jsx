@@ -29,7 +29,7 @@ export function CurriculumRail({ open, onToggle }) {
       {track && (
         <div id="curriculum-rail" style={S.rail}>
           {track.items.map((item) => (
-            <div key={item.n} style={S.card}>
+            <div key={item.n} className="engraved lift" style={S.card}>
               <div style={S.cardNum}>{String(item.n).padStart(2, "0")}</div>
               <div>
                 <div style={S.cardTitle}>{item.t}</div>

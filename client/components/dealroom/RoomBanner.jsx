@@ -7,7 +7,7 @@ export function RoomBanner({ onOpen }) {
 
   return (
     <div style={S.roomBanner}>
-      <button style={S.roomPlaque} onClick={onOpen}>
+      <button className="engraved sheen" style={S.roomPlaque} onClick={onOpen}>
         <span>THE DEAL ROOM · BY APPLICATION ONLY</span>
         <span style={S.roomPlaqueCount}>
           {remaining} OF {cap} MEMBERSHIPS REMAINING
