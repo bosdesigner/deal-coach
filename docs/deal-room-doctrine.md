@@ -1,6 +1,8 @@
-# The Deal Room — operating doctrine
+# The 500 — operating doctrine
 
-The Room is built as a court. Seven principles from *The Prince*, systematized
+*The 500 is the institution. The Room is where its members meet.*
+
+The 500 is built as a court. Seven principles from *The Prince*, systematized
 into product mechanics. This file records what each one is, where it lives in
 the code, and — for the three that can go wrong — what separates the legitimate
 version from the illegitimate one.

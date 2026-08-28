@@ -1,5 +1,5 @@
 // ============================================================
-// THE DEAL ROOM — the invitation-only apex tier.
+// THE 500 — the institution. THE ROOM — where its members meet.
 //
 // Structured as a court. Every field below traces to one of the
 // operating principles in docs/deal-room-doctrine.md.

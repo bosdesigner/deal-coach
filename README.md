@@ -1,12 +1,14 @@
-# deal-coach
+# The 500
 
 Working prototype of an AI executive-coaching app with two tracks: the **deal**
 (negotiation tactics) and the **dealmaker** (mindset). The user describes a
 situation, presses a brass plaque, and gets coached on whichever layer the
 problem actually lives in.
 
-Pitched as *The Art of the Deal — AI Executive Coaching*, featuring the
-"What Would Trump Do?" advisor. `deal-coach` is the neutral codename.
+Pitched as **The 500** — a capped court of verified principals, with an AI
+advisor built on the licensed *Art of the Deal* material. `deal-coach` is the
+repo's original codename and now trails the brand; renaming it is a GitHub
+settings change whenever you want it.
 
 > **Private, pre-license.** No licence in `docs/licensing-one-pager.md` is
 > signed. Keep this repo and every deploy private, and read
@@ -33,7 +35,7 @@ see **[docs/replit-setup.md](docs/replit-setup.md)**.
 | `npm start` | Production: Express serves `dist/` **and** `/api` on `PORT` |
 | `npm run preview` | `build` then `start` — check the real production path |
 | `npm run voices` | Lists the ElevenLabs voice ids on your account |
-| `npm run check:demo-figures` | Fails while Deal Room figures are still fabricated |
+| `npm run check:demo-figures` | Fails while the seat count and caps are still fabricated |
 
 ## How it works
 
@@ -71,10 +73,11 @@ per message and 24 messages of history. The advisor's hard limits live in
 `server/prompt.js`; the table in `docs/rights-and-guardrails.md` explains why
 each one is there.
 
-## The Deal Room
+## The Room
 
-The apex tier — an invitation-only court of 500 verified principals, reached
-from the plaque under the curriculum tabs. Order of Precedence, published bar,
+Where the 500 meet. Reached from the plaque under the curriculum tabs.
+The membership cap and the institution's name are the same number, on purpose:
+seating a 501st member would mean renaming the company. Order of Precedence, published bar,
 a four-step application, the member Ledger, a double-blind intent board, and
 the Summit seating chart.
 

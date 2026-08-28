@@ -27,8 +27,8 @@ export const S = {
   masthead: { textAlign: "center", padding: "38px 16px 20px", width: "100%", maxWidth: 720 },
   demoBadge: { display: "inline-block", fontSize: 10, letterSpacing: "0.25em", color: C.faint, border: `1px solid ${C.lineMuted}`, padding: "4px 10px", borderRadius: 2, marginBottom: 14 },
   mastheadRule: { height: 1, background: `linear-gradient(90deg,transparent,${C.brass},transparent)`, margin: "10px auto", maxWidth: 420 },
-  brand: { fontFamily: serif, fontSize: "clamp(29px,7.2vw,50px)", letterSpacing: "0.15em", margin: 0, color: C.ivory, fontWeight: 400 },
-  tagline: { fontSize: 10.5, letterSpacing: "0.5em", color: C.brass, marginTop: 9, paddingLeft: "0.5em" },
+  brand: { fontFamily: serif, fontSize: "clamp(46px,13vw,86px)", letterSpacing: "0.16em", margin: 0, color: C.ivory, fontWeight: 400 },
+  tagline: { fontSize: 10.5, letterSpacing: "0.42em", color: C.brass, marginTop: 12, paddingLeft: "0.42em" },
   byline: { fontSize: 11, color: C.faint, marginTop: 8, letterSpacing: "0.04em" },
 
   tabRow: { display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", justifyContent: "center", padding: "0 16px" },
@@ -61,7 +61,7 @@ export const S = {
   textarea: { flex: 1, background: C.panel, border: `1px solid ${C.lineWarm}`, borderRadius: 4, color: C.ivory, padding: "12px 14px", fontSize: 14, resize: "none", fontFamily: sans, lineHeight: 1.5, maxHeight: 160, overflowY: "auto" },
   plaque: { fontFamily: serif, fontSize: 12, letterSpacing: "0.1em", lineHeight: 1.35, color: "#241a08", background: `linear-gradient(180deg,${C.brassLight} 0%,${C.brass} 45%,${C.brassDark} 100%)`, border: "1px solid #71581f", borderRadius: 4, padding: "8px 16px", cursor: "pointer", boxShadow: "0 3px 0 #4a3a15, 0 5px 12px rgba(0,0,0,.55)", whiteSpace: "nowrap" },
 
-  // ---- The Deal Room -----------------------------------------------------
+  // ---- The Room -----------------------------------------------------
   // Engraved plaque in the masthead; the only entry point to the Room.
   roomBanner: { width: "100%", maxWidth: 720, margin: "2px auto 10px", padding: "0 16px" },
   roomPlaque: { width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 12, flexWrap: "wrap", background: "linear-gradient(180deg,#1d1710 0%,#141009 100%)", border: `1px solid ${C.lineWarm}`, borderTop: `1px solid ${C.brassDark}`, borderRadius: 3, padding: "11px 14px", cursor: "pointer", fontFamily: serif, color: C.ivory, fontSize: 11.5, letterSpacing: "0.14em" },

@@ -21,8 +21,8 @@ export function DealRoom({ onBack, onPledge }) {
           The Room is where you find your counterparty.
         </h2>
         <div style={S.roomSub}>
-          A capped court of 500 verified principals. Rank is earned inside
-          these walls and exists nowhere else.
+          The 500 is a capped court of verified principals. Rank is earned
+          inside these walls and exists nowhere else.
         </div>
 
         <button
