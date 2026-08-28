@@ -7,9 +7,12 @@ import { CurriculumRail } from "./components/CurriculumRail.jsx";
 import { Chat } from "./components/Chat.jsx";
 import { Composer } from "./components/Composer.jsx";
 import { VoiceToggle } from "./components/VoiceToggle.jsx";
+import { RoomBanner } from "./components/dealroom/RoomBanner.jsx";
+import { DealRoom } from "./components/dealroom/DealRoom.jsx";
 
 export default function App() {
   const [track, setTrack] = useState(null);
+  const [view, setView] = useState("advisor");
   const { messages, streaming, error, send } = useAdvisor();
   const voice = useSpeech();
 
@@ -17,18 +20,23 @@ export default function App() {
   // `streaming`, not on every delta.
   const wasStreaming = useRef(false);
   useEffect(() => {
-    if (wasStreaming.current && !streaming) {
+    if (wasStreaming.current && !streaming && view === "advisor") {
       const last = messages[messages.length - 1];
       if (last?.role === "assistant" && last.content) voice.say(last.content);
     }
     wasStreaming.current = streaming;
-  }, [streaming, messages, voice]);
+  }, [streaming, messages, voice, view]);
 
   return (
     <div style={S.page}>
       <Masthead />
       <CurriculumRail open={track} onToggle={setTrack} />
 
+      <RoomBanner onOpen={() => setView("room")} />
+
+      {view === "room" ? (
+        <DealRoom onBack={() => setView("advisor")} />
+      ) : (
       <main style={S.chatWrap}>
         <Chat
           messages={messages}
@@ -53,6 +61,7 @@ export default function App() {
           Not affiliated with or endorsed by any individual named above.
         </div>
       </main>
+      )}
     </div>
   );
 }

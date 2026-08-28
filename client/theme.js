@@ -61,6 +61,70 @@ export const S = {
   textarea: { flex: 1, background: C.panel, border: `1px solid ${C.lineWarm}`, borderRadius: 4, color: C.ivory, padding: "12px 14px", fontSize: 14, resize: "none", fontFamily: sans, lineHeight: 1.5, maxHeight: 160, overflowY: "auto" },
   plaque: { fontFamily: serif, fontSize: 12, letterSpacing: "0.1em", lineHeight: 1.35, color: "#241a08", background: `linear-gradient(180deg,${C.brassLight} 0%,${C.brass} 45%,${C.brassDark} 100%)`, border: "1px solid #71581f", borderRadius: 4, padding: "8px 16px", cursor: "pointer", boxShadow: "0 3px 0 #4a3a15, 0 5px 12px rgba(0,0,0,.55)", whiteSpace: "nowrap" },
 
+  // ---- The Deal Room -----------------------------------------------------
+  // Engraved plaque in the masthead; the only entry point to the Room.
+  roomBanner: { width: "100%", maxWidth: 720, margin: "2px auto 10px", padding: "0 16px" },
+  roomPlaque: { width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 12, flexWrap: "wrap", background: "linear-gradient(180deg,#1d1710 0%,#141009 100%)", border: `1px solid ${C.lineWarm}`, borderTop: `1px solid ${C.brassDark}`, borderRadius: 3, padding: "11px 14px", cursor: "pointer", fontFamily: serif, color: C.ivory, fontSize: 11.5, letterSpacing: "0.14em" },
+  roomPlaqueCount: { fontFamily: sans, fontSize: 9, letterSpacing: "0.12em", color: C.brass },
+  roomPlaqueDemo: { fontFamily: sans, fontSize: 8, letterSpacing: "0.18em", color: C.fainter, border: `1px solid ${C.lineMuted}`, borderRadius: 2, padding: "2px 5px" },
+
+  roomWrap: { width: "100%", maxWidth: 720, padding: "0 16px", display: "flex", flexDirection: "column", gap: 20 },
+  roomBack: { alignSelf: "flex-start", background: "none", border: "none", color: C.faint, fontSize: 10, letterSpacing: "0.18em", cursor: "pointer", padding: "6px 0", fontFamily: sans },
+
+  roomHeadline: { fontFamily: serif, fontSize: "clamp(19px,3.6vw,25px)", lineHeight: 1.35, letterSpacing: "0.02em", color: C.ivory, margin: 0 },
+  roomSub: { fontSize: 13, color: C.muted, lineHeight: 1.6, marginTop: 10 },
+
+  sectionLabel: { fontSize: 9.5, letterSpacing: "0.28em", color: C.brass, marginBottom: 10 },
+  panel: { background: C.panel, border: `1px solid ${C.line}`, borderRadius: 4, padding: "16px 18px" },
+  panelBrass: { background: C.panel, border: `1px solid ${C.brassDark}`, borderRadius: 4, padding: "16px 18px" },
+  smallPrint: { fontSize: 10.5, color: C.fainter, lineHeight: 1.6, marginTop: 10 },
+
+  rankRow: { display: "grid", gridTemplateColumns: "auto 1fr", gap: "0 16px", padding: "13px 0", borderTop: `1px solid ${C.line}` },
+  rankName: { fontFamily: serif, fontSize: 13, letterSpacing: "0.16em", color: C.brass, whiteSpace: "nowrap" },
+  rankCap: { fontFamily: sans, fontSize: 9, letterSpacing: "0.14em", color: C.fainter, marginTop: 4 },
+  rankAdmission: { fontSize: 12.5, color: C.ivory, lineHeight: 1.5 },
+  rankAccess: { fontSize: 11.5, color: C.muted, marginTop: 5, lineHeight: 1.65 },
+
+  barGroupLabel: { fontSize: 11, color: C.faint, letterSpacing: "0.04em", marginBottom: 6 },
+  barItem: { fontSize: 12.5, color: C.ivory, lineHeight: 1.6, paddingLeft: 14, position: "relative" },
+  barTerms: { display: "flex", flexWrap: "wrap", gap: "6px 10px", marginTop: 14, paddingTop: 14, borderTop: `1px solid ${C.lineWarm}` },
+  barTerm: { fontSize: 10.5, letterSpacing: "0.1em", color: C.brass, border: `1px solid ${C.lineWarm}`, borderRadius: 2, padding: "5px 9px" },
+
+  stepRow: { display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap" },
+  stepPip: { flex: "1 1 60px", height: 2, background: C.line },
+  stepPipDone: { background: C.brass },
+  stepTitle: { fontFamily: serif, fontSize: 16, letterSpacing: "0.08em", color: C.ivory },
+  stepCount: { fontSize: 9.5, letterSpacing: "0.2em", color: C.faint, marginBottom: 6 },
+  field: { display: "block", marginTop: 12 },
+  fieldLabel: { display: "block", fontSize: 10.5, letterSpacing: "0.12em", color: C.faint, marginBottom: 6 },
+  radioRow: { display: "flex", alignItems: "flex-start", gap: 9, padding: "7px 0", fontSize: 12.5, color: C.ivory, cursor: "pointer", lineHeight: 1.5 },
+  select: { width: "100%", background: C.ink, border: `1px solid ${C.lineWarm}`, borderRadius: 3, color: C.ivory, padding: "9px 10px", fontSize: 13, fontFamily: sans },
+  input: { width: "100%", background: C.ink, border: `1px solid ${C.lineWarm}`, borderRadius: 3, color: C.ivory, padding: "9px 10px", fontSize: 13, fontFamily: sans },
+  contributionPrompt: { fontFamily: serif, fontSize: "clamp(17px,3.2vw,21px)", lineHeight: 1.4, color: C.ivory, marginBottom: 10 },
+  charCount: { fontSize: 10, color: C.fainter, textAlign: "right", marginTop: 5, letterSpacing: "0.08em" },
+  stepNav: { display: "flex", justifyContent: "space-between", gap: 10, marginTop: 20 },
+  btnGhost: { background: "none", border: `1px solid ${C.lineMuted}`, color: C.faint, fontSize: 10.5, letterSpacing: "0.16em", cursor: "pointer", padding: "10px 16px", borderRadius: 3, fontFamily: sans },
+  btnBrass: { background: `linear-gradient(180deg,${C.brassLight} 0%,${C.brass} 45%,${C.brassDark} 100%)`, border: "1px solid #71581f", color: "#241a08", fontFamily: serif, fontSize: 11.5, letterSpacing: "0.14em", cursor: "pointer", padding: "10px 18px", borderRadius: 3 },
+
+  ledgerGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(128px,1fr))", gap: 14, marginTop: 4 },
+  ledgerCell: {},
+  ledgerVal: { fontFamily: serif, fontSize: 22, color: C.brass, lineHeight: 1.1 },
+  ledgerKey: { fontSize: 9.5, letterSpacing: "0.14em", color: C.faint, marginTop: 5, lineHeight: 1.5 },
+
+  intentGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 10 },
+  intentCard: { background: C.panel, border: `1px solid ${C.line}`, borderRadius: 4, padding: "13px 14px", display: "flex", flexDirection: "column", gap: 9 },
+  intentKind: { fontSize: 9.5, letterSpacing: "0.18em", color: C.brass },
+  intentBody: { fontSize: 12.5, color: C.ivory, lineHeight: 1.55, flex: 1 },
+  intentBtn: { background: "none", border: `1px solid ${C.brassDark}`, color: C.brass, fontSize: 9.5, letterSpacing: "0.14em", padding: "8px 10px", borderRadius: 2, cursor: "not-allowed", opacity: 0.75, fontFamily: sans, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 },
+
+  summitStrip: { background: "linear-gradient(180deg,#1a140e 0%,#100c08 100%)", border: `1px solid ${C.lineWarm}`, borderRadius: 4, padding: "16px 18px", display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" },
+  summitName: { fontFamily: serif, fontSize: 14, letterSpacing: "0.18em", color: C.ivory },
+  summitMeta: { fontSize: 9.5, letterSpacing: "0.18em", color: C.brass, marginTop: 6 },
+
+  receiptWrap: { textAlign: "center", padding: "34px 12px" },
+  receiptHead: { fontFamily: serif, fontSize: "clamp(20px,3.6vw,26px)", letterSpacing: "0.06em", color: C.ivory },
+  receiptBody: { fontSize: 13, color: C.muted, lineHeight: 1.7, maxWidth: 400, margin: "14px auto 0" },
+
   voiceRow: { display: "flex", justifyContent: "center", gap: 8, marginBottom: 4, padding: "0 16px" },
   voiceBtn: { display: "inline-flex", alignItems: "center", gap: 7, background: "none", border: `1px solid ${C.lineMuted}`, color: C.faint, fontSize: 10, letterSpacing: "0.18em", cursor: "pointer", padding: "6px 12px", borderRadius: 3, fontFamily: sans },
   voiceBtnOn: { border: `1px solid ${C.brass}`, color: C.ivory, background: C.panelRaised },

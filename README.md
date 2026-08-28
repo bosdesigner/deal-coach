@@ -33,6 +33,7 @@ see **[docs/replit-setup.md](docs/replit-setup.md)**.
 | `npm start` | Production: Express serves `dist/` **and** `/api` on `PORT` |
 | `npm run preview` | `build` then `start` — check the real production path |
 | `npm run voices` | Lists the ElevenLabs voice ids on your account |
+| `npm run check:demo-figures` | Fails while Deal Room figures are still fabricated |
 
 ## How it works
 
@@ -69,6 +70,23 @@ before running more than one instance). Requests are capped at 4,000 characters
 per message and 24 messages of history. The advisor's hard limits live in
 `server/prompt.js`; the table in `docs/rights-and-guardrails.md` explains why
 each one is there.
+
+## The Deal Room
+
+The apex tier — an invitation-only court of 500 verified principals, reached
+from the plaque under the curriculum tabs. Order of Precedence, published bar,
+a four-step application, the member Ledger, a double-blind intent board, and
+the Summit seating chart.
+
+It is built on seven court mechanics, each recorded with its rationale and its
+failure mode in **[docs/deal-room-doctrine.md](docs/deal-room-doctrine.md)**.
+Three things there are not style notes: displayed scarcity must be real
+(`npm run check:demo-figures` gates it), the Membership Committee must actually
+exist before it rejects anyone, and nothing in the product may imply access to
+government.
+
+The demo stores nothing — the application flow makes no network request and
+writes no storage.
 
 ## Voice (optional)
 

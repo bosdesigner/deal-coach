@@ -44,6 +44,14 @@ line of cases, and the licence in the one-pager does not grant voice rights.
 Casting a human actor to do an impression is the same violation with an extra
 step. Cast for energy, not resemblance.
 
+## The Deal Room
+
+Its doctrine, and the three places it can go wrong, are in
+`docs/deal-room-doctrine.md`. In short: displayed scarcity must be real before
+anyone pays, the Membership Committee must be a real body before it rejects
+anyone, and nothing may imply access to government — that last one is
+existential for a politically-branded licence.
+
 ## UI disclosures
 
 Three are present and should stay:
